@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import './widgets/new_transaction.dart';
 import './widgets/transaction_list.dart';
 import './models/transaction.dart';
+import './widgets/chart.dart';
 
 void main() {
   runApp(MyApp());
@@ -77,6 +78,16 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
+  List<Transaction> get _recentTransaction {
+    return _userTransactions.where((element) {
+      return element.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -99,15 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             Container(
-              height: 50,
               width: double.infinity,
-              child: Card(
-                  elevation: 10,
-                  child: Text(
-                    "Chart !",
-                    style: TextStyle(fontSize: 30),
-                    textAlign: TextAlign.center,
-                  )),
+              child: Card(elevation: 10, child: Chart(_recentTransaction)),
             ),
             TransactionList(_userTransactions)
           ],
