@@ -57,7 +57,7 @@ class NewTransaction extends StatelessWidget {
                   "Add Transaction",
                   style: TextStyle(fontSize: 20),
                 ),
-                textColor: Colors.lightBlueAccent,
+                textColor: Theme.of(context).primaryColorDark,
               ),
             ),
           ],
