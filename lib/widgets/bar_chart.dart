@@ -13,20 +13,31 @@ class BarChart extends StatelessWidget {
           '₹${spendingAmount.toString()}',
           style: Theme.of(context).textTheme.headline6,
         ),
-        Card(
-          color: Colors.green,
-          shadowColor: Colors.white,
-          child: Stack(
-            children: [
-              Container(
-                height: 250,
-                color: Colors.amber,
+        Container(
+          color: Colors.black,
+          // decoration: BoxDecoration(
+          //   border: Border.all(width: 2),
+          //   borderRadius: BorderRadius.circular(10),
+          // ),
+          height: 160,
+          width: 60,
+          child: Center(
+            child: Container(
+              height: 150,
+              width: 50,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 150,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    height: (1 - spendingPctOfTotal) * 150,
+                    color: Colors.white,
+                  )
+                ],
               ),
-              Container(
-                height: (1 - spendingPctOfTotal) * 250,
-                color: Colors.white,
-              )
-            ],
+            ),
           ),
         ),
         Text(
