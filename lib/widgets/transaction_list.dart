@@ -21,18 +21,22 @@ class TransactionList extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                height: 200,
-                width: 450,
-                child: Image.asset(
-                  'assets/images/gif2.gif',
-                  fit: BoxFit.fill,
+              Card(
+                elevation: 20,
+                shadowColor: Colors.red,
+                child: Container(
+                  height: 200,
+                  width: 450,
+                  child: Image.asset(
+                    'assets/images/gif2.gif',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               Text('Add transaction here',
                   style: Theme.of(context).textTheme.headline4),
               Container(
-                height: 200,
+                height: 40,
                 child: Image.asset(
                   'assets/images/image2.jpg',
                   fit: BoxFit.cover,
