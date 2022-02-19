@@ -1,7 +1,6 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:personal_expense/widgets/bar_chart.dart';
 import '../models/transaction.dart';
 
 class Chart extends StatelessWidget {
@@ -28,25 +27,35 @@ class Chart extends StatelessWidget {
     });
   }
 
+  double get _weeklyTransactionSum {
+    return recentTransaction.fold(
+        0.01, (previousValue, element) => previousValue + element.amount);
+  }
+
   @override
   Widget build(BuildContext context) {
     groupedTransactionValue;
-    return Card(
-      child: Row(
-        children: [
-          ...groupedTransactionValue.map((mapElement) {
-            return Card(
-              child: Column(
-                children: [
-                  Text('₹'),
-                  Text('${mapElement['amount']}    '),
-                  Text('${mapElement['day']}   '),
-                ],
-              ),
-            );
-          }).toList()
-        ],
-      ),
+    return Row(
+      children: [
+        ...groupedTransactionValue.map((mapElement) {
+          return Column(
+            children: [
+              Container(
+                color: Colors.blue.shade700,
+                height: 300,
+                width: 218,
+                child: BarChart(
+                  mapElement['day'] as String,
+                  mapElement['amount'] as double,
+                  double.parse(
+                      ((mapElement['amount'] as double) / _weeklyTransactionSum)
+                          .toStringAsFixed(2)),
+                ),
+              )
+            ],
+          );
+        }).toList()
+      ],
     );
   }
 }
