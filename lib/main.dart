@@ -34,9 +34,14 @@ class MyApp extends StatelessWidget {
                   fontSize: 32,
                   fontWeight: FontWeight.w900,
                   color: Colors.redAccent),
+              headline6: TextStyle(
+                  fontFamily: 'Quicksand',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white),
             ),
         fontFamily: 'Quicksand',
-        accentColor: Colors.deepOrange,
+        accentColor: Colors.blue,
         primarySwatch: Colors.red,
       ),
       debugShowCheckedModeBanner: false,
@@ -52,7 +57,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [];
+  final List<Transaction> _userTransactions = [
+    // Transaction(
+    //     id: '1',
+    //     tittle: DateTime.now().subtract(Duration(days: 1)).toString(),
+    //     amount: 20,
+    //     date: DateTime.now().subtract(Duration(days: 1))),
+    // Transaction(
+    //     id: '2',
+    //     tittle: DateTime.now().subtract(Duration(days: 2)).toString(),
+    //     amount: 40,
+    //     date: DateTime.now().subtract(Duration(days: 2))),
+    // Transaction(
+    //     id: '3',
+    //     tittle: DateTime.now().subtract(Duration(days: 5)).toString(),
+    //     amount: 50,
+    //     date: DateTime.now().subtract(Duration(days: 5))),
+  ];
 
   void _updateTransactionList(String txTitle, double txAmount) {
     Transaction txNew = Transaction(
