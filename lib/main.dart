@@ -35,10 +35,11 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.w900,
                   color: Colors.redAccent),
               headline6: TextStyle(
-                  fontFamily: 'Quicksand',
-                  fontSize: 15,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white),
+                fontFamily: 'Quicksand',
+                fontSize: 15,
+                fontWeight: FontWeight.w900,
+                //color: Colors.white,
+              ),
             ),
         fontFamily: 'Quicksand',
         accentColor: Colors.blue,
@@ -131,8 +132,13 @@ class _MyHomePageState extends State<MyHomePage> {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             Container(
+              margin: EdgeInsets.all(5),
               width: double.infinity,
-              child: Card(elevation: 10, child: Chart(_recentTransaction)),
+              padding: EdgeInsets.all(15),
+              child: Card(
+                elevation: 10,
+                child: Chart(_recentTransaction),
+              ),
             ),
             TransactionList(_userTransactions)
           ],
